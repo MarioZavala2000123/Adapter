@@ -7,6 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class AdapterXmlApplication {
+	
+	public static String nombre;
+	public static String apellido;
+	public static int carnet;
+	public static String Fnacimiento;
+	public static String direccion;
 
 	public static void main(String[] args) {
 		SpringApplication.run(AdapterXmlApplication.class, args);
@@ -14,11 +20,7 @@ public class AdapterXmlApplication {
 		Scanner scn = new Scanner(System.in);
 
 		int opcion = 0;
-		String nombre;
-		String apellido;
-		int carnet;
-		String Fnacimiento;
-		String direccion;
+		
 
 		char registroPost = 'n';
 
@@ -62,11 +64,11 @@ public class AdapterXmlApplication {
 					System.out.print(" -");
 					direccion = scn.next();
 
-					System.out.println("Datos registrados correctamente");
+				//	System.out.println("Datos registrados correctamente");
 
-					System.out.println("  --¿Desa agregar algún otro dato? s/n");
-					System.out.print("Respuesta: ");
-					registroPost = scn.next().charAt(0);
+				//	System.out.println("  --¿Desa agregar algún otro dato? s/n");
+				//	System.out.print("Respuesta: ");
+				//	registroPost = scn.next().charAt(0);
 
 				} while (registroPost == 's');
 
@@ -75,7 +77,7 @@ public class AdapterXmlApplication {
 			case 2:
 
 				System.out.println("\t---Datos XML---");
-
+				XML();
 				break;
 
 			case 3:
@@ -86,6 +88,23 @@ public class AdapterXmlApplication {
 
 		} while (opcion != 4);
 
+	}
+	
+	
+	public static void XML() {
+
+		Alumno alumno = new Alumno();
+		
+		System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+				+ "<root>\n"
+				+ "<alumnos>\n"
+				+ "   <nombre>"+alumno.getNombre()+"</nombre>\n"
+				+ "   <apellido>"+alumno.getApellido()+"</apellido>\n"
+				+ "   <carntet>"+alumno.getCarnet()+"</carnet>\n"
+				+ "   <fecha_nacimiento>"+alumno.getFnacimiento()+"</fecha_nacimiento>\n"
+				+ "   <direccion>"+alumno.getDireccion()+"</direccion>\n"
+				+ "</alumnos>\n"
+				+ "</root>");
 	}
 
 }
