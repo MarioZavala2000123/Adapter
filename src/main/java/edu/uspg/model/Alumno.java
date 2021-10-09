@@ -12,7 +12,7 @@ public class Alumno {
 	String apellidos; 
 	String correo;
 	
-	
+
 	public Alumno() {
 		super();
 	}
